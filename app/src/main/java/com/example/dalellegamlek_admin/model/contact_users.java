@@ -9,27 +9,36 @@ public class contact_users {
     String name;
     @SerializedName("phone")
     String phone;
+
+    @SerializedName("image")
+    String image;
+    @SerializedName("address")
+    String addresss;
     @SerializedName("points")
-    String point;
-    @SerializedName("governorate")
-    String country;
-    @SerializedName("age")
-    int age;
+    int points;
 
-    public String getCountry() {
-        return country;
+    public int getPoints() {
+        return points;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setPoints(int points) {
+        this.points = points;
     }
 
-    public int getAge() {
-        return age;
+    public String getImage() {
+        return image;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getAddresss() {
+        return addresss;
+    }
+
+    public void setAddresss(String addresss) {
+        this.addresss = addresss;
     }
 
     public int getId() {
@@ -56,11 +65,5 @@ public class contact_users {
         this.phone = phone;
     }
 
-    public String getPoint() {
-        return point;
-    }
 
-    public void setPoint(String point) {
-        this.point = point;
-    }
 }

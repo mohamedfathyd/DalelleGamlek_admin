@@ -1,9 +1,7 @@
 package com.example.dalellegamlek_admin.Adapter;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -18,22 +16,22 @@ import com.bumptech.glide.Glide;
 import com.example.dalellegamlek_admin.R;
 import com.example.dalellegamlek_admin.model.Apiclient_home;
 import com.example.dalellegamlek_admin.model.apiinterface_home;
-import com.example.dalellegamlek_admin.model.contact_category;
+import com.example.dalellegamlek_admin.model.contact_users;
+import com.example.dalellegamlek_admin.model.content_event;
 
 import java.util.List;
-
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAdapter_deletefirst.MyViewHolder> {
+public class RecyclerAdapter_charge_event extends RecyclerView.Adapter<RecyclerAdapter_charge_event.MyViewHolder> {
     Typeface myTypeface;
     private Context context;
-    List<contact_category> contactslist;
+    List<content_event> contactslist;
      apiinterface_home apiinterface;
-    public RecyclerAdapter_deletefirst(Context context, List<contact_category> contactslist){
+    public RecyclerAdapter_charge_event(Context context, List<content_event> contactslist){
         this.contactslist=contactslist;
         this.context=context;
 
@@ -42,7 +40,7 @@ public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAd
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_delete,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_event,parent,false);
 
         return new MyViewHolder(view);
     }
@@ -50,24 +48,13 @@ public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAd
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
 
-
-    holder.Name.setText(contactslist.get(position).getname());
-
-        Glide.with(context).load(contactslist.get(position).getImage()).error(R.drawable.logoo).into(holder.image);
+       holder.id_sender.setText(contactslist.get(position).getId_sender()+"");
+       holder.id_recever.setText(contactslist.get(position).getId_recevier()+"");
+       holder.point.setText(contactslist.get(position).getPoint()+"");
        holder.itemView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               new AlertDialog.Builder(context)
-                       .setTitle("دللي جمالك")
-                       .setMessage("هل انت متأكد انك تريد المسح ؟")
-                       .setIcon(android.R.drawable.ic_dialog_alert)
-                       .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-                           public void onClick(DialogInterface dialog, int whichButton) {
-                               int id=contactslist.get(position).getId();
-                               fetchInfo(id);
-                           }})
-                       .setNegativeButton(android.R.string.no, null).show();
            }
        });
     }
@@ -77,15 +64,17 @@ public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAd
     }
 
 public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView Name;
+        TextView id_sender ,id_recever,point;
         ImageView image;
 
         ImageView delete;
     public MyViewHolder(View itemView) {
         super(itemView);
-        Name=(TextView)itemView.findViewById(R.id.txt_fish_title);
-        image=(ImageView)itemView.findViewById(R.id.imageView3);
-        delete=(ImageView)itemView.findViewById(R.id.delete);
+        id_sender=(TextView)itemView.findViewById(R.id.id);
+
+        id_recever=itemView.findViewById(R.id.idd);
+        point=itemView.findViewById(R.id.point);
+
 
     }
 }

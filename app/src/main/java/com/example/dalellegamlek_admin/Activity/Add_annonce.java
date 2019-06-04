@@ -136,7 +136,7 @@ public class Add_annonce extends AppCompatActivity {
 
                 AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(Add_annonce.this);
                 dlgAlert.setMessage("تم تسجيل الاعلان الجديد بنجاح ");
-                dlgAlert.setTitle("MonoAd");
+                dlgAlert.setTitle("دللي جمالك");
                 dlgAlert.setPositiveButton("OK", null);
                 dlgAlert.setCancelable(true);
                 dlgAlert.create().show();

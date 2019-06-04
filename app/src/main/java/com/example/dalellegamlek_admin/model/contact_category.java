@@ -8,7 +8,7 @@ public class contact_category {
     private int id;
     @SerializedName("name")
     private String name;
-    @SerializedName("img")
+    @SerializedName("image")
     private  String image;
 
     public String getImage() {

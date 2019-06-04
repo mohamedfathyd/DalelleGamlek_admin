@@ -19,21 +19,21 @@ import com.example.dalellegamlek_admin.R;
 import com.example.dalellegamlek_admin.model.Apiclient_home;
 import com.example.dalellegamlek_admin.model.apiinterface_home;
 import com.example.dalellegamlek_admin.model.contact_category;
+import com.example.dalellegamlek_admin.model.contact_users;
 
 import java.util.List;
-
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAdapter_deletefirst.MyViewHolder> {
+public class RecyclerAdapter_users extends RecyclerView.Adapter<RecyclerAdapter_users.MyViewHolder> {
     Typeface myTypeface;
     private Context context;
-    List<contact_category> contactslist;
+    List<contact_users> contactslist;
      apiinterface_home apiinterface;
-    public RecyclerAdapter_deletefirst(Context context, List<contact_category> contactslist){
+    public RecyclerAdapter_users(Context context, List<contact_users> contactslist){
         this.contactslist=contactslist;
         this.context=context;
 
@@ -42,7 +42,7 @@ public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAd
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_delete,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list,parent,false);
 
         return new MyViewHolder(view);
     }
@@ -51,23 +51,15 @@ public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAd
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
 
 
-    holder.Name.setText(contactslist.get(position).getname());
-
+    holder.Name.setText(contactslist.get(position).getName());
+    holder.phone.setText(contactslist.get(position).getPhone());
+    holder.address.setText(contactslist.get(position).getAddresss());
+    holder.id.setText("ID :" + contactslist.get(position).getId());
         Glide.with(context).load(contactslist.get(position).getImage()).error(R.drawable.logoo).into(holder.image);
        holder.itemView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               new AlertDialog.Builder(context)
-                       .setTitle("دللي جمالك")
-                       .setMessage("هل انت متأكد انك تريد المسح ؟")
-                       .setIcon(android.R.drawable.ic_dialog_alert)
-                       .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-                           public void onClick(DialogInterface dialog, int whichButton) {
-                               int id=contactslist.get(position).getId();
-                               fetchInfo(id);
-                           }})
-                       .setNegativeButton(android.R.string.no, null).show();
            }
        });
     }
@@ -77,15 +69,18 @@ public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAd
     }
 
 public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView Name;
+        TextView Name ,address,id,phone;
         ImageView image;
 
         ImageView delete;
     public MyViewHolder(View itemView) {
         super(itemView);
-        Name=(TextView)itemView.findViewById(R.id.txt_fish_title);
-        image=(ImageView)itemView.findViewById(R.id.imageView3);
-        delete=(ImageView)itemView.findViewById(R.id.delete);
+        Name=(TextView)itemView.findViewById(R.id.name);
+        image=(ImageView)itemView.findViewById(R.id.image);
+        phone=itemView.findViewById(R.id.numtext);
+        id=itemView.findViewById(R.id.idtext);
+        address=itemView.findViewById(R.id.countrytext);
+
 
     }
 }

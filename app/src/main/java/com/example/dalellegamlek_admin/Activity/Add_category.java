@@ -138,7 +138,7 @@ public class Add_category extends AppCompatActivity {
 
                 AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(Add_category.this);
                 dlgAlert.setMessage("تم تسجيل القسم الجديد بنجاح ");
-                dlgAlert.setTitle("MonoAd");
+                dlgAlert.setTitle("دللي جمالك");
                 dlgAlert.setPositiveButton("OK", null);
                 dlgAlert.setCancelable(true);
                 dlgAlert.create().show();

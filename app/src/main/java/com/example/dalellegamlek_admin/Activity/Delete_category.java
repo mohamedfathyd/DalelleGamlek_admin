@@ -73,7 +73,7 @@ public class Delete_category extends AppCompatActivity {
 
     public void fetchInfo() {
         apiinterface = Apiclient_home.getapiClient().create(apiinterface_home.class);
-        Call<List<contact_category>> call = apiinterface.getcontacts_category();
+        Call<List<contact_category>> call = apiinterface.getcontacts_allfirst();
         call.enqueue(new Callback<List<contact_category>>() {
             @Override
             public void onResponse(Call<List<contact_category>> call, Response<List<contact_category>> response) {
