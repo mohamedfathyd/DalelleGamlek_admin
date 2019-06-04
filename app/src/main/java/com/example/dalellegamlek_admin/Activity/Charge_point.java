@@ -48,7 +48,7 @@ public class Charge_point extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete_porvider);
+        setContentView(R.layout.activity_charge_point);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_subject);
         textView = (TextView) findViewById(R.id.toolbar_title);
         progressBar.setVisibility(View.VISIBLE);
