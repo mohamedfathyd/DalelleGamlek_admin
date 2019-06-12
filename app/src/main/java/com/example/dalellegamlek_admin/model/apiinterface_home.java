@@ -45,7 +45,7 @@ public interface apiinterface_home {
     Call<ResponseBody> charge_provider(@Field("id") int id,@Field("points")int points);
     @GET("montag/dallejamalk/Gmalek_all_charge_event.php")
     Call<List<content_event>> getcontacts_charge();
-    @GET("montag/dallejamalk/Gmalek_all_pull_event.php")
+    @GET("montag/dallejamalk/Gmalek _all_pull_event.php")
     Call<List<content_event>> getcontacts_pull();
 }
 
